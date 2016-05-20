@@ -12,5 +12,6 @@ public final class Constants {
     public static final String SALE_SORT_TYPE = "sale";
     public static final String POPULARITY_SORT_TYPE = "popularity";
     public static final String LOW_PRICE_SORT_TYPE = "priceasc";
+    public static final String HIGH_PRICE_SORT_TYPE = "priceDESC";
 
 }

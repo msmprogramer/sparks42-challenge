@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Spark42Challenge</string>
+    <string name="error_failed_load_products_message">Failed to load products</string>
 </resources>

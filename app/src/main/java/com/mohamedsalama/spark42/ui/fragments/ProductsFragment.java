@@ -2,6 +2,7 @@ package com.mohamedsalama.spark42.ui.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -117,6 +118,10 @@ public class ProductsFragment extends Fragment implements ProductsContract.View{
     @Override
     public void showFailureMessage() {
         Log.d(TAG, "showProducts: fail");
+        Snackbar.make(getView(),
+                getString(R.string.error_failed_load_products_message),
+                Snackbar.LENGTH_SHORT).
+                show();
     }
 
     @Override
