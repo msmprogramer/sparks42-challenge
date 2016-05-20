@@ -21,7 +21,6 @@ public class ProductRestClient {
     private ProductRestClient() {
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(Constants.BACKEND_API_URL)
-                .setConverter(new SimpleXMLConverter())
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .build();
 

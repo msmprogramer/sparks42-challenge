@@ -17,7 +17,7 @@ public interface ProductsContract {
 
     interface UserActionsListener {
 
-        void loadProducts(String page, String sortType);
+        void loadProducts(String page, String pageSize, String sortType);
 
         void stopPresenter();
     }

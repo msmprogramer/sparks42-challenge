@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductsFragment extends Fragment implements ProductsContract.View{
+
+    private static final String TAG = "ProductsFragment";
 
     private ProductsAdapter productsAdapter;
 
@@ -39,7 +42,7 @@ public class ProductsFragment extends Fragment implements ProductsContract.View{
     @Override
     public void onResume() {
         super.onResume();
-        productPresenter.loadProducts("1", "sale");
+        productPresenter.loadProducts("1", "100" ,"sale");
     }
 
     @Override
@@ -72,12 +75,13 @@ public class ProductsFragment extends Fragment implements ProductsContract.View{
 
     @Override
     public void showProducts(List<Content> products) {
+        Log.d(TAG, "showProducts: "+products.size());
         productsAdapter.replaceData(products);
     }
 
     @Override
     public void showFailureMessage() {
-
+        Log.d(TAG, "showProducts: fail");
     }
 
     @Override

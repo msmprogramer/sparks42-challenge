@@ -9,6 +9,10 @@ import retrofit.http.Query;
 public interface ProductsApi {
 
     @GET("/articles")
-    void listProducts(@Query("page") String page, @Query("sort") String sortType, Callback<ProductResponse> itemCallback);
+    void listProducts(
+            @Query("page") String page,
+            @Query("pageSize") String pageSize,
+            @Query("sort") String sortType,
+            Callback<ProductResponse> itemCallback);
 
 }
