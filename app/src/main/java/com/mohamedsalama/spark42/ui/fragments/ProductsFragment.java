@@ -7,6 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
@@ -16,6 +19,7 @@ import com.mohamedsalama.spark42.adapter.ProductsAdapter;
 import com.mohamedsalama.spark42.data.model.Content;
 import com.mohamedsalama.spark42.mvp.presenter.ProductPresenter;
 import com.mohamedsalama.spark42.mvp.view.ProductsContract;
+import com.mohamedsalama.spark42.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +28,17 @@ public class ProductsFragment extends Fragment implements ProductsContract.View{
 
     private static final String TAG = "ProductsFragment";
 
+    private final static int PAGE = 1;
+    private final static int PAGE_SIZE = 100;
+
     private ProductsAdapter productsAdapter;
 
     private ProductPresenter productPresenter;
 
     private ProgressBar progressBarLoading;
+
+    private boolean loading = true;
+    private int pastVisiblesItems, visibleItemCount, totalItemCount;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,12 +47,14 @@ public class ProductsFragment extends Fragment implements ProductsContract.View{
         productsAdapter = new ProductsAdapter(getContext(), new ArrayList<Content>());
 
         productPresenter = new ProductPresenter(this);
+
+        setHasOptionsMenu(true);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        productPresenter.loadProducts("1", "100" ,"sale");
+        loadProducts(Constants.SALE_SORT_TYPE);
     }
 
     @Override
@@ -60,17 +72,40 @@ public class ProductsFragment extends Fragment implements ProductsContract.View{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         //init recycle view
-        RecyclerView recyclerViewDevices =
+        RecyclerView recyclerViewProducts =
                 (RecyclerView) view.findViewById(R.id.products_recycleView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerViewDevices.setLayoutManager(layoutManager);
-        recyclerViewDevices.setHasFixedSize(true);
-        recyclerViewDevices.setAdapter(productsAdapter);
+        recyclerViewProducts.setLayoutManager(layoutManager);
+        recyclerViewProducts.setHasFixedSize(true);
+
+        recyclerViewProducts.setAdapter(productsAdapter);
 
         progressBarLoading = (ProgressBar) view.findViewById(R.id.loading_progressBar);
 
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_sort_options, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.menuSortSale) {
+            loadProducts(Constants.SALE_SORT_TYPE);
+        } else if (id == R.id.menuSortPopularity) {
+            loadProducts(Constants.POPULARITY_SORT_TYPE);
+        } else if (id == R.id.menuSortLowPrice) {
+            loadProducts(Constants.LOW_PRICE_SORT_TYPE);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -85,7 +120,17 @@ public class ProductsFragment extends Fragment implements ProductsContract.View{
     }
 
     @Override
+    public void showProgress() {
+        progressBarLoading.setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void hideProgress() {
         progressBarLoading.setVisibility(View.GONE);
+    }
+
+    private void loadProducts(String sortType) {
+        productPresenter.loadProducts(PAGE, PAGE_SIZE , sortType);
+
     }
 }

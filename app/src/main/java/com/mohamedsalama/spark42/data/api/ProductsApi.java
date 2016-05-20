@@ -10,8 +10,8 @@ public interface ProductsApi {
 
     @GET("/articles")
     void listProducts(
-            @Query("page") String page,
-            @Query("pageSize") String pageSize,
+            @Query("page") int page,
+            @Query("pageSize") int pageSize,
             @Query("sort") String sortType,
             Callback<ProductResponse> itemCallback);
 

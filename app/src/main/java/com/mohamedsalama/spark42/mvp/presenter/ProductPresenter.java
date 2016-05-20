@@ -27,7 +27,9 @@ public class ProductPresenter implements ProductsContract.UserActionsListener {
     }
 
     @Override
-    public void loadProducts(String page, String pageSize, String sortType) {
+    public void loadProducts(int page, int pageSize, String sortType) {
+
+        productsView.showProgress();
 
         productsApi.listProducts(page, pageSize, sortType, new Callback<ProductResponse>() {
             @Override

@@ -12,12 +12,14 @@ public interface ProductsContract {
 
         void showFailureMessage();
 
+        void showProgress();
+
         void hideProgress();
     }
 
     interface UserActionsListener {
 
-        void loadProducts(String page, String pageSize, String sortType);
+        void loadProducts(int page, int pageSize, String sortType);
 
         void stopPresenter();
     }
