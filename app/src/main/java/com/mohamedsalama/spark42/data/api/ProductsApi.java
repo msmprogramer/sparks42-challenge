@@ -13,6 +13,6 @@ public interface ProductsApi {
             @Query("page") int page,
             @Query("pageSize") int pageSize,
             @Query("sort") String sortType,
-            Callback<ProductResponse> itemCallback);
+            Callback<ProductResponse> productsCallback);
 
 }

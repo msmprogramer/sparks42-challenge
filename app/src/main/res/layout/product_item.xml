@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/imgView_productImage"
-        android:layout_toLeftOf="@+id/textView_ProductPrice"
+        android:layout_toLeftOf="@+id/textView_productPrice"
         android:layout_centerVertical="true"
         android:orientation="vertical">
 
@@ -26,7 +26,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/textView_ProductBrand"
+            android:id="@+id/textView_productBrand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -34,7 +34,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView_ProductPrice"
+        android:id="@+id/textView_productPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"

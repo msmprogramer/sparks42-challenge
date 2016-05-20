@@ -88,8 +88,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         public ProductViewHolder(View itemView) {
             super(itemView);
             textViewProductName = (TextView) itemView.findViewById(R.id.textView_productName);
-            textViewProductBrand = (TextView) itemView.findViewById(R.id.textView_ProductBrand);
-            textViewProductPrice = (TextView) itemView.findViewById(R.id.textView_ProductPrice);
+            textViewProductBrand = (TextView) itemView.findViewById(R.id.textView_productBrand);
+            textViewProductPrice = (TextView) itemView.findViewById(R.id.textView_productPrice);
             imageViewProductImage = (ImageView) itemView.findViewById(R.id.imgView_productImage);
         }
 

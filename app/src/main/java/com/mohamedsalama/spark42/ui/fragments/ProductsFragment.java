@@ -38,8 +38,6 @@ public class ProductsFragment extends Fragment implements ProductsContract.View{
 
     private ProgressBar progressBarLoading;
 
-    private boolean loading = true;
-    private int pastVisiblesItems, visibleItemCount, totalItemCount;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -136,6 +134,5 @@ public class ProductsFragment extends Fragment implements ProductsContract.View{
 
     private void loadProducts(String sortType) {
         productPresenter.loadProducts(PAGE, PAGE_SIZE , sortType);
-
     }
 }
