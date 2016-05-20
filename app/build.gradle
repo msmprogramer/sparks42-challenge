@@ -24,6 +24,7 @@ dependencies {
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    compile "com.squareup.picasso:picasso:$rootProject.picassoVersion"
     compile "com.google.guava:guava:$rootProject.guavaVersion"
     compile "com.squareup.retrofit:retrofit:$rootProject.retrofitVersion"
     compile "com.squareup.okhttp:okhttp:$rootProject.okhttpVersion"
