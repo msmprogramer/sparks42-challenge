@@ -18,6 +18,7 @@ import java.util.List;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductViewHolder> {
+
     private List<Content> products;
     private Context context;
     public ProductsAdapter(Context context, List<Content> products) {
