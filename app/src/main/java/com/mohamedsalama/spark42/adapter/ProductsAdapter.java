@@ -42,6 +42,12 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
 
         productViewHolder.textViewProductBrand.setText(content.getBrand().getName());
 
+        String price = String.valueOf(content.getUnits().get(0).getPrice().getValue());
+        String currency = content.getUnits().get(0).getPrice().getCurrency();
+
+        productViewHolder.textViewProductPrice.setText(
+                price.concat(" ").concat(currency)
+        );
 
 
         String productImageUrl = content.getMedia().getImages().get(0).getThumbnailHdUrl();
