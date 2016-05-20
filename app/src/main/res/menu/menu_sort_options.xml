@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/menuSortSale"
-        android:title="Sort by Sale" />
+        android:title="@string/menu_item_sort_sale" />
     <item
         android:id="@+id/menuSortPopularity"
-        android:title="Sort by Popularity" />
+        android:title="@string/menu_item_sort_popularity" />
 
     <item
         android:id="@+id/menuSortLowPrice"
-        android:title="Sort by low price" />
+        android:title="@string/menu_item_sort_low_price" />
 </menu>

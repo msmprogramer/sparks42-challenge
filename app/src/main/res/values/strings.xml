@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Spark42Challenge</string>
     <string name="error_failed_load_products_message">Failed to load products</string>
+
+    <string name="menu_item_sort_sale">Sort by Sale</string>
+    <string name="menu_item_sort_popularity">Sort by Popularity</string>
+    <string name="menu_item_sort_low_price">Sort by low price</string>
+
 </resources>
