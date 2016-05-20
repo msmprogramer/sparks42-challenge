@@ -7,5 +7,5 @@ public final class Constants {
     }
 
     //Api Url
-    public static final String BACKEND_API_URL = "";
+    public static final String BACKEND_API_URL = "https://api.zalando.com";
 }
